@@ -1,17 +1,19 @@
-import { AppConfig } from '@lib/AppConfig';
 import { Container } from '@components/Container';
+import { Hero } from '@components/Hero';
 
 export default function Homepage() {
   return (
     <div>
       <header>
-        <Container>{AppConfig.header}</Container>
+        <Container>header</Container>
       </header>
       <main>
-        <Container>{AppConfig.main}</Container>
+        <Container>
+          <Hero />
+        </Container>
       </main>
       <footer>
-        <Container>{AppConfig.footer}</Container>
+        <Container>footer</Container>
       </footer>
     </div>
   );
