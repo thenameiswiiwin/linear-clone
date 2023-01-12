@@ -26,8 +26,8 @@ Rebuilding Linear.app with Next JS 13, Tailwind CSS, TypeScript, ESLint, Prettie
 Run the following command on your local environment:
 
 ```shell
-git clone --depth=1 https://github.com/thenameiswiiwin/template-next13-tailwind.git my-project-name
-cd my-project-name
+git clone https://github.com/thenameiswiiwin/linear-clone.git.git
+cd linear-clone
 yarn
 ```
 
