@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --nav-height: 4.8rem;
+  }
+
   html {
     @apply bg-black font-sans text-white;
     font-size: 62.5%;

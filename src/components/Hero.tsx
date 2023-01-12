@@ -1,8 +1,8 @@
-import { HeroContent } from '@lib/content/HeroContent';
+import { HeroContent } from '@lib/data';
 
 const HeroTitle = () => {
   return (
-    <h1 className="text-5xl my-6">
+    <h1 className="my-6 text-5xl">
       {HeroContent.titleTop}
       <br />
       {HeroContent.titleBottom}
@@ -12,7 +12,7 @@ const HeroTitle = () => {
 
 const HeroSubtitle = () => {
   return (
-    <p className="text-lg mb-12">
+    <p className="mb-12 text-lg">
       {HeroContent.subtitleTop}
       <br />
       {HeroContent.subtitleBottom}

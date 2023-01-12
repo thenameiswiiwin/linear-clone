@@ -8,12 +8,16 @@ module.exports = {
   theme: {
     colors: {
       black: '#000212',
-      white: '#fff',
+      white: {
+        DEFAULT: '#fff',
+        100: 'rgba(255, 255, 255, 0.08)',
+      },
     },
     fontFamily: {
       sans: '"SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif',
     },
     fontSize: {
+      sm: '1.4rem',
       md: '1.6rem',
       lg: ['2.2rem', '1.3'],
       '5xl': ['8rem', '1'],
