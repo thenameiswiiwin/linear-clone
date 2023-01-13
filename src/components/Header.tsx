@@ -18,33 +18,43 @@ export const Header = () => {
     <header className="fixed top-0 left-0 w-full border-b border-white-200 backdrop-blur-[12px]">
       <Container className="flex h-nav-height">
         <Link href="/" className="flex items-center text-md">
-          <Logo className="mr-4 h-[1.8rem] w-[1.8rem]" /> Linear
+          <Logo className="mr-2 h-[1.8rem] w-[1.8rem]" /> Linear
         </Link>
-        <nav
+        <div
           className={clsx(
-            'fixed top-nav-height left-0 h-[calc(100vh-var(--nav-height))] w-full overflow-auto bg-black md:relative md:block md:top-0 md:h-auto md:w-auto md:bg-transparent',
-            isOpen ? '' : 'hidden'
+            'transition-[visibility] md:visible',
+            isOpen ? 'visible' : 'invisible delay-500'
           )}
         >
-          <ul className="flex h-full flex-col md:flex-row md:items-center">
-            {NavLinks.map((link) => (
-              <li
-                key={link.label}
-                className={clsx(
-                  'ml-6 border-b border-gray-200 md:border-none',
-                  link.className
-                )}
-              >
-                <Link
-                  href={link.href}
-                  className="flex h-nav-height w-full items-center text-md transition-colors hover:text-gray-100 md:text-sm"
+          <nav
+            className={clsx(
+              'md:opacity-100 fixed top-nav-height left-0 h-[calc(100vh-var(--nav-height))] w-full overflow-auto bg-black md:relative md:block md:top-0 md:h-auto md:w-auto md:bg-transparent transition-opacity duration-500',
+              isOpen ? 'opacity-100' : 'opacity-0'
+            )}
+          >
+            <ul className="flex h-full flex-col md:flex-row md:items-center ease-in">
+              {NavLinks.map((link) => (
+                <li
+                  key={link.label}
+                  className={clsx(
+                    'ml-6 border-b border-gray-200 md:border-none',
+                    link.className
+                  )}
                 >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+                  <Link
+                    href={link.href}
+                    className={clsx(
+                      'translate-y-8 flex h-nav-height w-full items-center text-md transition-[colors,transform] hover:text-gray-100 md:text-sm md:translate-y-0 duration-300',
+                      isOpen && 'translate-y-0'
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
         <div className="ml-auto flex h-full items-center">
           <Link href="/login" className="mr-6 text-sm">
             Log in
