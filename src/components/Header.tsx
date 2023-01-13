@@ -7,10 +7,27 @@ import { Logo } from '@components/icons/logo';
 import { NavLinks } from '@lib/data';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const html = document.querySelector('html');
+    if (html) html.classList.toggle('overflow-hidden', isOpen);
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleResize = () => setIsOpen(false);
+
+    window.addEventListener('orientationchange', handleResize);
+    window.addEventListener('resize', () => handleResize);
+
+    return () => {
+      window.removeEventListener('orientationchange', handleResize);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [setIsOpen]);
 
   const handleToggle = () => setIsOpen(!isOpen);
 
