@@ -15,10 +15,14 @@ module.exports = {
     },
     colors: {
       black: '#000212',
-      gray: '#858699',
+      gray: {
+        100: '#858699',
+        200: '#222326',
+      },
+      transparent: 'transparent',
       white: {
-        DEFAULT: '#fff',
-        100: 'rgba(255, 255, 255, 0.08)',
+        100: '#fff',
+        200: 'rgba(255, 255, 255, 0.08)',
       },
     },
     fontFamily: {
@@ -45,6 +49,7 @@ module.exports = {
       10: '4rem',
       11: '4.4rem',
       12: '4.8rem',
+      'nav-height': 'var(--nav-height)',
     },
     extend: {},
   },

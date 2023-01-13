@@ -8,7 +8,7 @@
   }
 
   html {
-    @apply bg-black font-sans text-white;
+    @apply bg-black font-sans text-white-100;
     font-size: 62.5%;
   }
 }
