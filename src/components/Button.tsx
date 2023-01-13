@@ -12,8 +12,7 @@ const buttonClasses = cva('rounded-full inline-flex items-center', {
     intent: {
       primary:
         'bg-primary-gradient hover:text-shadow hover:shadow-primary transition-[shadow,text-shadow]',
-      secondary: '',
-      tertiary: '',
+      secondary: 'text-gray-200 bg-white bg-opacity-10',
     },
     size: {
       sm: 'text-xs px-3 h-7',

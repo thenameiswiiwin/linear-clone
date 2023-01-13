@@ -56,14 +56,14 @@ export const Header = () => {
                 <li
                   key={link.label}
                   className={clsx(
-                    'ml-6 border-b border-gray-400 md:border-none',
+                    'ml-6 border-b border-gray-500 md:border-none',
                     link.className
                   )}
                 >
                   <Link
                     href={link.href}
                     className={clsx(
-                      'flex h-nav-height w-full translate-y-8 items-center text-lg transition-[color,transform] duration-300 hover:text-gray-300 md:translate-y-0 md:text-md md:transition-colors',
+                      'flex h-nav-height w-full translate-y-8 items-center text-lg transition-[color,transform] duration-300 hover:text-gray-400 md:translate-y-0 md:text-md md:transition-colors',
                       isOpen && 'translate-y-0'
                     )}
                   >

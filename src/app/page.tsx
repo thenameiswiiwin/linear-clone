@@ -1,4 +1,5 @@
 import HeroImg from '@assets/images/hero.webp';
+import { Button } from '@components/Button';
 import { Container } from '@components/Container';
 import { Hero, HeroSubtitle, HeroTitle } from '@components/Hero';
 import Image from 'next/image';
@@ -6,8 +7,11 @@ import Image from 'next/image';
 export default function Homepage() {
   return (
     <div>
-      <Container>
+      <Container className="pt-[6.4rem]">
         <Hero>
+          <Button href="/" intent="secondary" size="sm">
+            Linear 2022 Release - Built for scale
+          </Button>
           <HeroTitle>
             Linear is a better way
             <br className="hidden md:block" /> to build products

@@ -8,12 +8,12 @@
   }
 
   html {
-    @apply bg-black font-sans text-white;
+    @apply bg-black font-sans text-gray-200;
     font-size: 62.5%;
   }
 }
 
-@utilities {
+@layer utilities {
   .text-gradient {
     background: linear-gradient(
       to right bottom,

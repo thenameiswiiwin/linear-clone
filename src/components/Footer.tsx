@@ -12,10 +12,10 @@ export const Footer = () => {
       <Container className="flex flex-col justify-between lg:flex-row">
         <div>
           <div className="flex h-full flex-row justify-between lg:flex-col">
-            <div className="flex items-center text-gray-300">
+            <div className="flex items-center text-gray-400">
               <Logo className="mr-4 h-4 w-4" /> Linear - Designed Worldwide
             </div>
-            <div className="mt-auto flex space-x-4 text-gray-300">
+            <div className="mt-auto flex space-x-4 text-gray-400">
               <TwitterIcon />
               <GithubIcon />
               <SlackIcon />
@@ -34,7 +34,7 @@ export const Footer = () => {
                   <li key={link.label} className="[&_a]:last:mb-0">
                     <Link
                       href={link.href}
-                      className="mb-3 block text-gray-300 transition-colors hover:text-white"
+                      className="mb-3 block text-gray-400 transition-colors hover:text-gray-200"
                     >
                       {link.label}
                     </Link>
