@@ -28,8 +28,10 @@ export const Header = () => {
         >
           <nav
             className={clsx(
-              'fixed top-nav-height left-0 h-[calc(100vh-var(--nav-height))] w-full overflow-auto bg-black transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:bg-transparent md:opacity-100',
-              isOpen ? 'opacity-100' : 'opacity-0'
+              'fixed top-nav-height left-0 h-[calc(100vh_-_var(--nav-height))] w-full overflow-auto bg-black transition-opacity duration-500 md:relative md:top-0 md:block md:h-auto md:w-auto md:translate-x-0 md:bg-transparent md:opacity-100 md:transition-none',
+              isOpen
+                ? 'translate-x-0 opacity-100'
+                : 'translate-x-[-100vw] opacity-0'
             )}
           >
             <ul className="flex h-full flex-col ease-in md:flex-row md:items-center">
@@ -44,7 +46,7 @@ export const Header = () => {
                   <Link
                     href={link.href}
                     className={clsx(
-                      'flex h-nav-height w-full translate-y-8 items-center text-md transition-[colors,transform] duration-300 hover:text-gray-100 md:translate-y-0 md:text-sm',
+                      'flex h-nav-height w-full translate-y-8 items-center text-md transition-[color,transform] duration-300 hover:text-gray-100 md:translate-y-0 md:text-sm md:transition-colors',
                       isOpen && 'translate-y-0'
                     )}
                   >
