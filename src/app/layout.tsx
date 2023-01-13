@@ -1,6 +1,6 @@
 import '@styles/globals.css';
 
-import { Container } from '@components/Container';
+import { Footer } from '@components/Footer';
 import { Header } from '@components/Header';
 
 export default function RootLayout({
@@ -19,9 +19,7 @@ export default function RootLayout({
       <body>
         <Header />
         <main className="pt-nav-height">{children}</main>
-        <footer>
-          <Container>footer</Container>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
