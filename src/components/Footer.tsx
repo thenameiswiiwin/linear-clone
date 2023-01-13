@@ -9,7 +9,7 @@ import Link from 'next/link';
 export const Footer = () => {
   return (
     <footer className="mt-12 border-t border-white-200 py-[5.6rem] text-sm">
-      <Container className="flex flex-col justify-between md:flex-row">
+      <Container className="flex flex-col justify-between lg:flex-row">
         <div>
           <div className="flex h-full flex-row justify-between lg:flex-col">
             <div className="flex items-center text-gray-100">
@@ -34,7 +34,7 @@ export const Footer = () => {
                   <li key={link.label} className="[&_a]:last:mb-0">
                     <Link
                       href={link.href}
-                      className="mb-3 block text-gray-100 hover:text-white-100 transition-colors"
+                      className="mb-3 block text-gray-100 transition-colors hover:text-white-100"
                     >
                       {link.label}
                     </Link>
