@@ -17,8 +17,8 @@ const buttonClasses = cva('rounded-full inline-flex items-center', {
     },
     size: {
       sm: 'text-xs px-3 h-7',
-      md: 'text-sm px-4 h-8',
-      lg: 'text-md px-6 h-12',
+      md: 'text-md px-4 h-8',
+      lg: 'text-lg px-6 h-12',
     },
   },
   defaultVariants: {

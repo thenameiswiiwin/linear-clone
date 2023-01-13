@@ -32,9 +32,9 @@ export const Header = () => {
   const handleToggle = () => setIsOpen(!isOpen);
 
   return (
-    <header className="fixed top-0 left-0 w-full border-b border-white-200 backdrop-blur-[12px]">
+    <header className="fixed top-0 left-0 w-full border-b border-gray-100 backdrop-blur-[12px]">
       <Container className="flex h-nav-height">
-        <Link href="/" className="flex items-center text-md">
+        <Link href="/" className="flex items-center text-lg">
           <Logo className="mr-2 h-[1.8rem] w-[1.8rem]" /> Linear
         </Link>
         <div
@@ -56,14 +56,14 @@ export const Header = () => {
                 <li
                   key={link.label}
                   className={clsx(
-                    'ml-6 border-b border-gray-200 md:border-none',
+                    'ml-6 border-b border-gray-400 md:border-none',
                     link.className
                   )}
                 >
                   <Link
                     href={link.href}
                     className={clsx(
-                      'flex h-nav-height w-full translate-y-8 items-center text-md transition-[color,transform] duration-300 hover:text-gray-100 md:translate-y-0 md:text-sm md:transition-colors',
+                      'flex h-nav-height w-full translate-y-8 items-center text-lg transition-[color,transform] duration-300 hover:text-gray-300 md:translate-y-0 md:text-md md:transition-colors',
                       isOpen && 'translate-y-0'
                     )}
                   >
@@ -75,7 +75,7 @@ export const Header = () => {
           </nav>
         </div>
         <div className="ml-auto flex h-full items-center">
-          <Link href="/login" className="mr-6 text-sm">
+          <Link href="/login" className="mr-6 text-md">
             Log in
           </Link>
           <Button href="/login" intent="primary">

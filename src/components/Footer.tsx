@@ -8,14 +8,14 @@ import Link from 'next/link';
 
 export const Footer = () => {
   return (
-    <footer className="mt-12 border-t border-white-200 py-[5.6rem] text-sm">
+    <footer className="mt-12 border-t border-gray-100 py-[5.6rem] text-md">
       <Container className="flex flex-col justify-between lg:flex-row">
         <div>
           <div className="flex h-full flex-row justify-between lg:flex-col">
-            <div className="flex items-center text-gray-100">
+            <div className="flex items-center text-gray-300">
               <Logo className="mr-4 h-4 w-4" /> Linear - Designed Worldwide
             </div>
-            <div className="mt-auto flex space-x-4 text-gray-100">
+            <div className="mt-auto flex space-x-4 text-gray-300">
               <TwitterIcon />
               <GithubIcon />
               <SlackIcon />
@@ -34,7 +34,7 @@ export const Footer = () => {
                   <li key={link.label} className="[&_a]:last:mb-0">
                     <Link
                       href={link.href}
-                      className="mb-3 block text-gray-100 transition-colors hover:text-white-100"
+                      className="mb-3 block text-gray-300 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
