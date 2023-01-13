@@ -13,7 +13,7 @@ export const Footer = () => {
         <div>
           <div className="flex h-full flex-col">
             <div className="flex items-center text-gray-100">
-              <Logo className="mr-4 h-4 w-4" /> Linear - Designed worldwide
+              <Logo className="mr-4 h-4 w-4" /> Linear - Designed Worldwide
             </div>
             <div className="mt-auto flex space-x-4 text-gray-100">
               <TwitterIcon />
