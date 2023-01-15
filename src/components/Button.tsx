@@ -7,17 +7,20 @@ interface ButtonProps extends VariantProps<typeof buttonClasses> {
   children: React.ReactNode;
 }
 
-const buttonClasses = cva('rounded-full inline-flex items-center', {
+const buttonClasses = cva('inline-flex items-center rounded-full', {
   variants: {
     intent: {
       primary:
-        'bg-primary-gradient hover:text-shadow hover:shadow-primary transition-[shadow,text-shadow]',
-      secondary: 'text-gray-200 bg-white bg-opacity-10',
+        'hover:text-shadow bg-primary-gradient transition-[shadow,text-shadow] hover:shadow-primary',
+      secondary: [
+        'backdrop-filter-[12px] border border-gray-100 bg-white bg-opacity-10 text-gray-200 transition-colors ease-in hover:bg-opacity-20',
+        '[&_.icon-wrapper]:ml-2 [&_.icon-wrapper]:-mr-2 [&_.icon-wrapper]:rounded-full [&_.icon-wrapper]:bg-gray-100 [&_.icon-wrapper]:px-2',
+      ],
     },
     size: {
-      sm: 'text-xs px-3 h-7',
-      md: 'text-md px-4 h-8',
-      lg: 'text-lg px-6 h-12',
+      sm: 'h-7 px-3 text-xs',
+      md: 'h-8 px-4 text-md',
+      lg: 'h-12 px-6 text-lg',
     },
   },
   defaultVariants: {
@@ -25,6 +28,10 @@ const buttonClasses = cva('rounded-full inline-flex items-center', {
     size: 'md',
   },
 });
+
+export const IconWrapper = ({ children }: { children: React.ReactNode }) => (
+  <span className="icon-wrapper">{children}</span>
+);
 
 export const Button = ({ href, children, intent, size }: ButtonProps) => {
   return (

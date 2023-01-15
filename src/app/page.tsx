@@ -1,5 +1,5 @@
 import HeroImg from '@assets/images/hero.webp';
-import { Button } from '@components/Button';
+import { Button, IconWrapper } from '@components/Button';
 import { Container } from '@components/Container';
 import { Hero, HeroSubtitle, HeroTitle } from '@components/Hero';
 import Image from 'next/image';
@@ -11,6 +11,7 @@ export default function Homepage() {
         <Hero>
           <Button href="/" intent="secondary" size="sm">
             Linear 2022 Release - Built for scale
+            <IconWrapper>→</IconWrapper>
           </Button>
           <HeroTitle>
             Linear is a better way

@@ -18,7 +18,7 @@ module.exports = {
     colors: {
       black: '#000212',
       gray: {
-        100: 'rgba(255, 255, 255, 0.08)', // transparnt white
+        100: 'rgba(255, 255, 255, 0.08)', // transparent white
         200: '#f7f8f8', // off white
         300: '#b4bcd0', // primary text
         400: '#858699', // grey
