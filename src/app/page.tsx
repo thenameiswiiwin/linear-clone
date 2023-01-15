@@ -2,6 +2,7 @@ import HeroImg from '@assets/images/hero.webp';
 import { Button, IconWrapper } from '@components/Button';
 import { Container } from '@components/Container';
 import { Hero, HeroSubtitle, HeroTitle } from '@components/Hero';
+import { ChevronIcon } from '@components/icons/chevron';
 import Image from 'next/image';
 
 export default function Homepage() {
@@ -23,7 +24,13 @@ export default function Homepage() {
             product roadmaps.
           </HeroSubtitle>
         </Hero>
-        <Image src={HeroImg} alt="Hero image" />
+        <Button href="/" intent="primary" size="lg">
+          Get started
+          <IconWrapper>
+            <ChevronIcon />
+          </IconWrapper>
+        </Button>
+        <Image src={HeroImg} alt="Hero image" className="mt-[12.8rem]" />
       </Container>
     </div>
   );

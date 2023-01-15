@@ -10,8 +10,10 @@ interface ButtonProps extends VariantProps<typeof buttonClasses> {
 const buttonClasses = cva('inline-flex items-center rounded-full', {
   variants: {
     intent: {
-      primary:
+      primary: [
         'hover:text-shadow bg-primary-gradient transition-[shadow,text-shadow] hover:shadow-primary',
+        '[&_.icon-wrapper]:ml-2',
+      ],
       secondary: [
         'backdrop-filter-[12px] border border-gray-100 bg-white bg-opacity-10 text-gray-200 transition-colors ease-in hover:bg-opacity-20',
         '[&_.icon-wrapper]:ml-2 [&_.icon-wrapper]:-mr-2 [&_.icon-wrapper]:rounded-full [&_.icon-wrapper]:bg-gray-100 [&_.icon-wrapper]:px-2',
