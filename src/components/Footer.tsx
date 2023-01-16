@@ -3,8 +3,8 @@ import { GithubIcon } from '@components/icons/github';
 import { Logo } from '@components/icons/logo';
 import { SlackIcon } from '@components/icons/slack';
 import { TwitterIcon } from '@components/icons/twitter';
-import { FooterLinks } from '@lib/data';
-import Link from 'next/link';
+
+import { FooterLink } from './FooterLink';
 
 export const Footer = () => {
   return (
@@ -22,28 +22,7 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap">
-          {FooterLinks.map((column) => (
-            <div
-              key={column.title}
-              className="mt-10 min-w-[50%] lg:mt-0 lg:min-w-[18rem]"
-            >
-              <h3 className="mb-3 font-medium">{column.title}</h3>
-              <ul>
-                {column.links.map((link) => (
-                  <li key={link.label} className="[&_a]:last:mb-0">
-                    <Link
-                      href={link.href}
-                      className="mb-3 block text-gray-400 transition-colors hover:text-gray-200"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <FooterLink />
       </Container>
     </footer>
   );
