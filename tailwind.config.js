@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     animation: {
       'fade-in': 'fade-in 1000ms var(--animation-delay, 0ms) ease forwards',
+      'image-rotate': 'image-rotate 1400ms ease forwards',
     },
     backgroundImage: {
       'hero-gradient':
@@ -53,6 +54,12 @@ module.exports = {
       'fade-in': {
         from: { opacity: 0, transform: 'translateY(-10px)' },
         to: { opacity: 1, transform: 'none' },
+      },
+      'image-rotate': {
+        '0%': { transform: 'rotateX(25deg)' },
+        '25%': { transform: 'rotateX(25deg) scale(0.9)' },
+        '60%': { transform: 'none' },
+        '100%': { transform: 'none' },
       },
     },
     spacing: {
