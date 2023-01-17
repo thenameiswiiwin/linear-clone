@@ -20,7 +20,14 @@ export const HeroImage = () => {
           inView && 'before:animate-image-glow'
         )}
       >
-        <Image src={HeroImg} alt="Hero image" className="relative z-10" />
+        <Image
+          src={HeroImg}
+          alt="Hero image"
+          className={clsx(
+            'relative transition-opacity delay-[600ms] z-10',
+            inView ? 'opacity-100' : 'opacity-0'
+          )}
+        />
       </div>
     </div>
   );
