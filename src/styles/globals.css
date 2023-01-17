@@ -14,14 +14,6 @@
 }
 
 @layer utilities {
-  .icon-wrapper {
-    @apply ml-2;
-  }
-
-  .icon-wrapper-secondary {
-    @apply icon-wrapper -mr-2 rounded-full bg-gray-100 px-2;
-  }
-
   .text-gradient {
     background: linear-gradient(
       to right bottom,
