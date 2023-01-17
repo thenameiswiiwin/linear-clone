@@ -1,8 +1,11 @@
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 import Link from 'next/link';
+import type { AnchorHTMLAttributes } from 'react';
 
-interface ButtonProps extends VariantProps<typeof buttonClasses> {
+interface ButtonProps
+  extends VariantProps<typeof buttonClasses>,
+    AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   children: React.ReactNode;
 }
@@ -11,12 +14,12 @@ const buttonClasses = cva('inline-flex items-center rounded-full', {
   variants: {
     intent: {
       primary: [
-        'hover:text-shadow bg-primary-gradient transition-[shadow,text-shadow] hover:shadow-primary',
-        '[&_.icon-wrapper]:ml-2',
+        'bg-primary-gradient transition-[shadow,text-shadow] hover:shadow-primary hover:text-shadow',
+        'icon-wrapper',
       ],
       secondary: [
         'backdrop-filter-[12px] border border-gray-100 bg-white bg-opacity-10 text-gray-200 transition-colors ease-in hover:bg-opacity-20',
-        '[&_.icon-wrapper]:ml-2 [&_.icon-wrapper]:-mr-2 [&_.icon-wrapper]:rounded-full [&_.icon-wrapper]:bg-gray-100 [&_.icon-wrapper]:px-2',
+        'icon-wrapper-secondary',
       ],
     },
     size: {
@@ -35,9 +38,11 @@ export const IconWrapper = ({ children }: { children: React.ReactNode }) => (
   <span className="icon-wrapper">{children}</span>
 );
 
-export const Button = ({ href, children, intent, size }: ButtonProps) => {
+export const Button = ({ children, intent, size, ...props }: ButtonProps) => {
+  const classes = buttonClasses({ intent, size, className: props.className });
+
   return (
-    <Link href={href} className={buttonClasses({ intent, size })}>
+    <Link {...props} className={classes}>
       {children}
     </Link>
   );

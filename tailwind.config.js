@@ -6,6 +6,9 @@ module.exports = {
     './src/components/**/*.{tsx,jsx,js,ts}',
   ],
   theme: {
+    animation: {
+      'fade-in': 'fade-in 1000ms var(--animation-delay, 0ms) ease forwards',
+    },
     backgroundImage: {
       'page-gradient':
         'radial-gradient(ellipse 80% 50% at 50% -20%,rgba(120, 119, 198, 0.3), transparent)',
@@ -43,6 +46,12 @@ module.exports = {
       '6xl': ['4.4rem', '1'],
       '7xl': ['4.8rem', '1'],
       '8xl': ['8rem', '1'],
+    },
+    keyframes: {
+      'fade-in': {
+        from: { opacity: 0, transform: 'translateY(-10px)' },
+        to: { opacity: 1, transform: 'none' },
+      },
     },
     spacing: {
       0: '0',
