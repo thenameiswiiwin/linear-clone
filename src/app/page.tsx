@@ -1,9 +1,8 @@
-import HeroImg from '@assets/images/hero.webp';
 import { Button, IconWrapper } from '@components/Button';
 import { Container } from '@components/Container';
 import { Hero, HeroSubtitle, HeroTitle } from '@components/Hero';
+import { HeroImage } from '@components/HeroImage';
 import { ChevronIcon } from '@components/icons/chevron';
-import Image from 'next/image';
 
 export default function Homepage() {
   return (
@@ -39,7 +38,7 @@ export default function Homepage() {
               <ChevronIcon />
             </IconWrapper>
           </Button>
-          <Image src={HeroImg} alt="Hero image" className="mt-[12.8rem]" />
+          <HeroImage />
         </Hero>
       </Container>
     </div>
