@@ -7,7 +7,7 @@ import { ChevronIcon } from '@components/icons/chevron';
 export default function Homepage() {
   return (
     <div>
-      <Container className="pt-[6.4rem]">
+      <Container className="overflow-hidden py-[6.4rem]">
         <Hero>
           <Button
             href="/"
