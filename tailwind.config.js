@@ -10,6 +10,7 @@ module.exports = {
       'fade-in': 'fade-in 1000ms var(--animation-delay, 0ms) ease forwards',
       'image-glow': 'image-glow 4100ms 600ms ease-out forwards',
       'image-rotate': 'image-rotate 1400ms ease forwards',
+      'sketch-lines': 'sketch-lines 1200ms ease-out forwards',
     },
     backgroundImage: {
       'hero-glow':
@@ -76,6 +77,12 @@ module.exports = {
         '25%': { transform: 'rotateX(25deg) scale(0.9)' },
         '60%': { transform: 'none' },
         '100%': { transform: 'none' },
+      },
+      'sketch-lines': {
+        '0%': { 'stroke-dashoffset': 1 },
+        '50%': { 'stroke-dashoffset': 0 },
+        '99%': { 'stroke-dashoffset': 0 },
+        '100%': { visiblity: 'hidden' },
       },
     },
     spacing: {
