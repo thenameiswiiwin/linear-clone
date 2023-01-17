@@ -4,15 +4,54 @@ import HeroImg from '@assets/images/hero.webp';
 import clsx from 'clsx';
 import Image from 'next/image';
 import type { CSSProperties } from 'react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+
+interface Line {
+  id: string;
+  direction: 'to bottom' | 'to right';
+  size: number;
+  duration: number;
+}
+
+const randomNumberBetween = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
 
 export const HeroImage = () => {
   const { ref, inView } = useInView({ threshold: 0.4, triggerOnce: true });
-  const [lines, setLines] = useState([
-    { direction: 'to bottom', duration: 2800, size: 20 },
-    { direction: 'to right', duration: 3000, size: 15 },
-  ]);
+  const [lines, setLines] = useState<Line[]>([]);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const removeLine = (id: string) => {
+    setLines((prev) => prev.filter((line) => line.id !== id));
+  };
+
+  useEffect(() => {
+    if (!inView) return;
+
+    const renderLine = (timeout: number) => {
+      timeoutRef.current = setTimeout(() => {
+        setLines((prevLines) => [
+          ...prevLines,
+          {
+            direction: Math.random() > 0.5 ? 'to bottom' : 'to right',
+            duration: randomNumberBetween(1300, 3500),
+            size: randomNumberBetween(10, 30),
+            id: Math.random().toString(36).substring(7),
+          },
+        ]);
+        renderLine(randomNumberBetween(800, 2500));
+      }, timeout);
+    };
+
+    renderLine(randomNumberBetween(800, 1300));
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [inView, setLines]);
 
   return (
     <div ref={ref} className="mt-[12.8rem] [perspective:2000px]">
@@ -28,7 +67,7 @@ export const HeroImage = () => {
         <div className="absolute top-0 left-0 z-20 h-full w-full">
           {lines.map((line) => (
             <span
-              key={line.size}
+              key={line.id}
               style={
                 {
                   '--direction': line.direction,
@@ -36,6 +75,7 @@ export const HeroImage = () => {
                   '--animation-duration': `${line.duration}ms`,
                 } as CSSProperties
               }
+              onAnimationEnd={() => removeLine(line.id)}
               className={clsx(
                 'absolute top-0 block h-[1px] w-[10rem] bg-glow-lines',
                 line.direction === 'to bottom' &&
