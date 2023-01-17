@@ -3,10 +3,16 @@
 import HeroImg from '@assets/images/hero.webp';
 import clsx from 'clsx';
 import Image from 'next/image';
+import type { CSSProperties } from 'react';
+import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 export const HeroImage = () => {
   const { ref, inView } = useInView({ threshold: 0.4, triggerOnce: true });
+  const [lines, setLines] = useState([
+    { direction: 'to bottom', duration: 2800, size: 20 },
+    { direction: 'to right', duration: 3000, size: 15 },
+  ]);
 
   return (
     <div ref={ref} className="mt-[12.8rem] [perspective:2000px]">
@@ -18,6 +24,29 @@ export const HeroImage = () => {
           inView && 'before:animate-image-glow'
         )}
       >
+        {/* Glowing Lines */}
+        <div className="absolute top-0 left-0 z-20 h-full w-full">
+          {lines.map((line) => (
+            <span
+              key={line.size}
+              style={
+                {
+                  '--direction': line.direction,
+                  '--size': line.size,
+                  '--animation-duration': `${line.duration}ms`,
+                } as CSSProperties
+              }
+              className={clsx(
+                'absolute top-0 block h-[1px] w-[10rem] bg-glow-lines',
+                line.direction === 'to bottom' &&
+                  'right-0 h-[calc(var(--size)*1rem)] w-[1px] animate-glow-line-vertical',
+                line.direction === 'to right' &&
+                  'left-0 h-[1px] w-[calc(var(--size)*1rem)] animate-glow-line-horizontal'
+              )}
+            />
+          ))}
+        </div>
+        {/* Sketch SVG  */}
         <svg
           className={clsx(
             'absolute top-0 left-0 h-full w-full',
