@@ -15,6 +15,7 @@ module.exports = {
       'image-glow': 'image-glow 4100ms 600ms ease-out forwards',
       'image-rotate': 'image-rotate 1400ms ease forwards',
       'sketch-lines': 'sketch-lines 1200ms ease-out forwards',
+      zap: 'zap 2250ms calc(var(--index) * 20ms) linear infinite',
     },
     backgroundImage: {
       'glass-gradient':
@@ -105,6 +106,14 @@ module.exports = {
         '50%': { 'stroke-dashoffset': 0 },
         '99%': { 'stroke-dashoffset': 0 },
         '100%': { visiblity: 'hidden' },
+      },
+      zap: {
+        '0%, 9%, 11%, 100% ': {
+          fill: 'transparent',
+        },
+        '10%': {
+          fill: 'white',
+        },
       },
     },
     spacing: {

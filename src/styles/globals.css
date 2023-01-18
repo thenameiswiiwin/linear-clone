@@ -24,6 +24,10 @@
     color: transparent;
   }
 
+  .mask-linear-faded {
+    mask-image: linear-gradient(black, transparent 70%);
+  }
+
   .mask-radial-faded {
     mask-image: radial-gradient(
       circle at center center,
