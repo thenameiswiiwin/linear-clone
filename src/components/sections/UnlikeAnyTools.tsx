@@ -15,15 +15,15 @@ export const UnlikeAnyTools = () => (
         Linear combines UI elegance with world-class performance.
       </p>
     </div>
-    <div className="flex flex-wrap gap-6">
-      <div className="flex min-h-[48rem] basis-[calc(66.66%-12px)] flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:p-14">
+    <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto md:flex-wrap">
+      <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(66.66%-12px)] md:p-14">
         <p className="text-3xl">Built for your keyboard</p>
         <p className="text-md text-gray-300">
           Fly through your tasks with rapid-fire keyboard shortcuts for
           everything. Literally everything.
         </p>
       </div>
-      <div className="relative flex min-h-[48rem] basis-[calc(33.33%-12px)] flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:p-14">
+      <div className="relative flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(33.33%-12px)] md:p-14">
         <div className="mask-linear-faded absolute top-[-9.2rem]">
           <ZapIllustration />
         </div>
@@ -32,7 +32,7 @@ export const UnlikeAnyTools = () => (
           Built for speed with 50ms interactions and real-time sync.
         </p>
       </div>
-      <div className="group relative flex min-h-[48rem] basis-[calc(33.33%-12px)] flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:p-14">
+      <div className="group relative flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(33.33%-12px)] md:p-14">
         <div className="pointer-events-none absolute top-[-8rem] w-[130%]">
           <LogoLightIllustration />
         </div>
@@ -51,7 +51,7 @@ export const UnlikeAnyTools = () => (
           <ChevronIcon fill="#8A8F98" className="ml-1" />
         </Button>
       </div>
-      <div className="flex min-h-[48rem] basis-[calc(66.66%-12px)] flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:p-14">
+      <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(66.66%-12px)] md:p-14">
         <p className="text-3xl">Meet your command line</p>
         <p className="text-md text-gray-300">
           Complete any action in seconds with the global command menu.
