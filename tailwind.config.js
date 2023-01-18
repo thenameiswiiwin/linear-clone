@@ -17,6 +17,8 @@ module.exports = {
       'sketch-lines': 'sketch-lines 1200ms ease-out forwards',
     },
     backgroundImage: {
+      'glass-gradient':
+        'linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)',
       'glow-lines':
         'linear-gradient(var(--direction), #9d9bf2 0.43%, #7877c6 14.11%, rgba(120, 119, 198, 0) 62.95%)',
       'hero-glow':
@@ -119,6 +121,8 @@ module.exports = {
       10: '4rem',
       11: '4.4rem',
       12: '4.8rem',
+      13: '5.2rem',
+      14: '5.6rem',
       'nav-height': 'var(--nav-height)',
     },
     extend: {},
