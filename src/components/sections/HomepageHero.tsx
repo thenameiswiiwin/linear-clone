@@ -1,4 +1,4 @@
-import { Button, IconWrapper } from '@components/Button';
+import { Button, Highlight } from '@components/Button';
 import { Hero, HeroSubtitle, HeroTitle } from '@components/Hero';
 import { HeroImage } from '@components/HeroImage';
 import { ChevronIcon } from '@components/icons/chevron';
@@ -12,7 +12,7 @@ export const HomepageHero = () => (
       className="translate-y-[-1rem] animate-fade-in opacity-0"
     >
       Linear 2022 Release - Built for scale
-      <IconWrapper>→</IconWrapper>
+      <Highlight>→</Highlight>
     </Button>
     <HeroTitle className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
       Linear is a better way
@@ -30,9 +30,9 @@ export const HomepageHero = () => (
       className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]"
     >
       Get started
-      <IconWrapper>
-        <ChevronIcon />
-      </IconWrapper>
+      <Highlight>
+        <ChevronIcon fill="currentColor" />
+      </Highlight>
     </Button>
     <HeroImage />
   </Hero>

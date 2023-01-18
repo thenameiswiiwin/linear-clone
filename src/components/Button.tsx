@@ -15,11 +15,11 @@ const buttonClasses = cva('inline-flex items-center rounded-full', {
     intent: {
       primary: [
         'bg-primary-gradient hover:text-shadow hover:shadow-primary transition-[shadow,text-shadow]',
-        '[&_.icon-wrapper]:ml-2',
+        '[&_.highlight]:ml-2',
       ],
       secondary: [
         'backdrop-filter-[12px] border border-gray-100 bg-white bg-opacity-10 text-gray-200 transition-colors ease-in hover:bg-opacity-20',
-        '[&_.icon-wrapper]:ml-2 [&_.icon-wrapper]:-mr-2 [&_.icon-wrapper]:rounded-full [&_.icon-wrapper]:bg-gray-100 [&_.icon-wrapper]:px-2',
+        '[&_.highlight]:last:-ml-2 [&_.highlight]:last:mr-2 [&_.highlight]:first:ml-2 [&_.highlight]:first:-mr-2 [&_.highlight]:rounded-full [&_.highlight]:bg-gray-100 [&_.highlight]:px-2',
       ],
     },
     size: {
@@ -34,8 +34,8 @@ const buttonClasses = cva('inline-flex items-center rounded-full', {
   },
 });
 
-export const IconWrapper = ({ children }: { children: React.ReactNode }) => (
-  <span className="icon-wrapper">{children}</span>
+export const Highlight = ({ children }: { children: React.ReactNode }) => (
+  <span className="highlight">{children}</span>
 );
 
 export const Button = ({ children, intent, size, ...props }: ButtonProps) => {
