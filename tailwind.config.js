@@ -27,6 +27,8 @@ module.exports = {
         'radial-gradient(ellipse 80% 50% at 50% -20%,rgba(120, 119, 198, 0.3), transparent)',
       'primary-gradient':
         'linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%)',
+      'radial-faded':
+        'radial-gradient(circle at bottom center, var(--color), transparent 70%)',
     },
     boxShadow: {
       primary: 'rgb(80 63 205 / 50%) 0px 1px 40px',

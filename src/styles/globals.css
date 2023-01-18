@@ -24,6 +24,14 @@
     color: transparent;
   }
 
+  .mask-radial-faded {
+    mask-image: radial-gradient(
+      circle at center center,
+      black,
+      transparent 80%
+    );
+  }
+
   .text-shadow {
     text-shadow: rgb(0 0 0 / 56%) 0px 3px 12px;
   }
