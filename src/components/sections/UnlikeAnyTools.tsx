@@ -10,12 +10,12 @@ export const UnlikeAnyTools = () => (
         Unlike any tool
         <br className="hidden md:inline-block" /> you’ve used before
       </h2>
-      <p className="mx-auto mb-4 max-w-[68rem] text-lg text-gray-300 md:text-xl">
+      <p className="mx-auto mb-12 max-w-[68rem] text-lg text-gray-300 md:text-xl">
         Designed to the last pixel and engineered with unforgiving precision,
         Linear combines UI elegance with world-class performance.
       </p>
     </div>
-    <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto md:flex-wrap">
+    <div className="flex md:justify-center snap-x snap-mandatory gap-6 overflow-x-auto md:flex-wrap">
       <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(66.66%-12px)] md:p-14">
         <p className="text-3xl">Built for your keyboard</p>
         <p className="text-md text-gray-300">
