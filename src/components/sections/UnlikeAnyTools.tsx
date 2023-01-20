@@ -3,6 +3,7 @@ import { Container } from '@components/Container';
 import { ChevronIcon } from '@components/icons/chevron';
 import { LogoLightIllustration } from '@components/illustrations/LogoLight';
 import { ZapIllustration } from '@components/illustrations/Zap';
+import { KeyboardShortcuts } from '@components/KeyboardShortcuts';
 
 export const UnlikeAnyTools = () => (
   <div className="text-white">
@@ -20,7 +21,8 @@ export const UnlikeAnyTools = () => (
     </Container>
     <div className="h-[48rem] overflow-hidden md:h-auto md:overflow-auto">
       <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-8 pb-12 md:flex-wrap md:overflow-hidden">
-        <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(66.66%-12px)] md:p-14">
+        <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:max-w-[calc(66.66%-12px)] md:basis-[calc(66.66%-12px)] md:p-14">
+          <KeyboardShortcuts />
           <p className="mb-4 text-3xl">Built for your keyboard</p>
           <p className="text-md text-gray-300">
             Fly through your tasks with rapid-fire keyboard shortcuts for
@@ -55,7 +57,7 @@ export const UnlikeAnyTools = () => (
             <ChevronIcon fill="#8A8F98" className="ml-1" />
           </Button>
         </div>
-        <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(66.66%-12px)] md:p-14">
+        <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:max-w-[calc(66.66%-12px)] md:basis-[calc(66.66%-12px)] md:p-14">
           <p className="mb-4 text-3xl">Meet your command line</p>
           <p className="text-md text-gray-300">
             Complete any action in seconds with the global command menu.
