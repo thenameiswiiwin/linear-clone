@@ -22,8 +22,12 @@ const Shortcuts = [
 
 export const KeyboardShortcuts = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const illustrationWrapperRef = useRef<HTMLDivElement>(null);
 
-  const onShortcutButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onShortcutButtonClick = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    keys: string
+  ) => {
     e.preventDefault();
     if (!wrapperRef.current) return;
 
@@ -31,14 +35,27 @@ export const KeyboardShortcuts = () => {
       left: e.currentTarget.offsetLeft - wrapperRef.current.clientWidth / 2,
       behavior: 'smooth',
     });
+
+    if (!illustrationWrapperRef.current) return;
+
+    illustrationWrapperRef.current
+      .querySelectorAll('.active')
+      .forEach((el) => el.classList.remove('active'));
+
+    const keyArray = keys.split('');
+    const keyElements = keyArray.map((key) =>
+      illustrationWrapperRef.current?.querySelector(`[data-key="${key}"]`)
+    );
+
+    keyElements.forEach((element) => element?.classList.add('active'));
   };
 
   return (
     <>
-      <div className="mask-keyboard h-full w-full">
+      <div ref={illustrationWrapperRef} className="mask-keyboard h-full w-full">
         <KeyboardIllustration />;
       </div>
-      <div className="min-h-[4rem] w-full overflow-hidden">
+      <div className="my-7 min-h-[4rem] w-full overflow-hidden">
         <div
           ref={wrapperRef}
           className="mask-shortcutkeys flex min-h-[4rem] max-w-full snap-x snap-mandatory gap-2 overflow-auto pb-8"
@@ -46,11 +63,11 @@ export const KeyboardShortcuts = () => {
           {Shortcuts.map((shortcut) => (
             <Button
               key={shortcut.text}
-              onClick={onShortcutButtonClick}
+              onClick={(e) => onShortcutButtonClick(e, shortcut.keys)}
               intent="secondary"
               className="shrink-0 snap-center first:ml-[50vw] last:mr-[50vw]"
             >
-              <Highlight className="mr-4 uppercase">{shortcut.keys}</Highlight>
+              <Highlight className="uppercase">{shortcut.keys}</Highlight>
               {shortcut.text}
             </Button>
           ))}
