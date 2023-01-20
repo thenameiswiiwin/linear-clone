@@ -18,47 +18,49 @@ export const UnlikeAnyTools = () => (
         </p>
       </div>
     </Container>
-    <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-8 pb-12 md:flex-wrap md:overflow-hidden">
-      <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(66.66%-12px)] md:p-14">
-        <p className="text-3xl">Built for your keyboard</p>
-        <p className="text-md text-gray-300">
-          Fly through your tasks with rapid-fire keyboard shortcuts for
-          everything. Literally everything.
-        </p>
-      </div>
-      <div className="relative flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(33.33%-12px)] md:p-14">
-        <div className="mask-linear-faded absolute top-[-9.2rem]">
-          <ZapIllustration />
+    <div className="h-[48rem] overflow-hidden md:h-auto md:overflow-auto">
+      <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-8 pb-12 md:flex-wrap md:overflow-hidden">
+        <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(66.66%-12px)] md:p-14">
+          <p className="mb-4 text-3xl">Built for your keyboard</p>
+          <p className="text-md text-gray-300">
+            Fly through your tasks with rapid-fire keyboard shortcuts for
+            everything. Literally everything.
+          </p>
         </div>
-        <p className="text-3xl">Breathtakingly fast</p>
-        <p className="text-md text-gray-300">
-          Built for speed with 50ms interactions and real-time sync.
-        </p>
-      </div>
-      <div className="group relative flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(33.33%-12px)] md:p-14">
-        <div className="pointer-events-none absolute top-[-8rem] w-[130%]">
-          <LogoLightIllustration />
+        <div className="relative flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end overflow-hidden rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(33.33%-12px)] md:p-14">
+          <div className="mask-linear-faded absolute top-[-9.2rem]">
+            <ZapIllustration />
+          </div>
+          <p className="mb-4 text-3xl">Breathtakingly fast</p>
+          <p className="text-md text-gray-300">
+            Built for speed with 50ms interactions and real-time sync.
+          </p>
         </div>
-        <p className="text-3xl">Designed for modern software teams</p>
-        <p className="text-md text-gray-300">
-          Comes with built-in workflows that create focus and routine.
-        </p>
-        <Button
-          href="/method"
-          intent="secondary"
-          size="sm"
-          className="absolute bottom-[20rem] translate-y-[30%] scale-[0.8] opacity-0 backdrop-blur-[12px] transition-[transform,opacity] group-hover:transform-none group-hover:opacity-100 [&_.highlight]:text-xs"
-        >
-          <Highlight>Linear Method</Highlight>
-          Product Principles
-          <ChevronIcon fill="#8A8F98" className="ml-1" />
-        </Button>
-      </div>
-      <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(66.66%-12px)] md:p-14">
-        <p className="text-3xl">Meet your command line</p>
-        <p className="text-md text-gray-300">
-          Complete any action in seconds with the global command menu.
-        </p>
+        <div className="group relative flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end overflow-hidden rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(33.33%-12px)] md:p-14">
+          <div className="pointer-events-none absolute top-[-8rem] w-[130%]">
+            <LogoLightIllustration />
+          </div>
+          <p className="mb-4 text-3xl">Designed for modern software teams</p>
+          <p className="text-md text-gray-300">
+            Comes with built-in workflows that create focus and routine.
+          </p>
+          <Button
+            href="/method"
+            intent="secondary"
+            size="sm"
+            className="absolute bottom-[20rem] translate-y-[30%] scale-[0.8] opacity-0 backdrop-blur-[12px] transition-[transform,opacity] group-hover:transform-none group-hover:opacity-100 [&_.highlight]:text-xs"
+          >
+            <Highlight>Linear Method</Highlight>
+            Product Principles
+            <ChevronIcon fill="#8A8F98" className="ml-1" />
+          </Button>
+        </div>
+        <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(66.66%-12px)] md:p-14">
+          <p className="mb-4 text-3xl">Meet your command line</p>
+          <p className="text-md text-gray-300">
+            Complete any action in seconds with the global command menu.
+          </p>
+        </div>
       </div>
     </div>
   </div>
