@@ -1,38 +1,39 @@
 'use client';
 
 import { KeyboardIllustration } from '@components/illustrations/Keyboard';
-import { useRef } from 'react';
+import { Shortcuts } from '@lib/data';
+import { useEffect, useRef } from 'react';
 
 import { Button, Highlight } from './Button';
-
-const Shortcuts = [
-  { text: 'Opens command line', keys: '⌘k' },
-  { text: 'Assign issue to me', keys: 'i' },
-  { text: 'Assign issue to', keys: 'a' },
-  { text: 'Change issue status', keys: 's' },
-  { text: 'Set issue priority', keys: 'p' },
-  { text: 'Add issue labels', keys: 'l' },
-  { text: 'Set due date', keys: '⇧d' },
-  { text: 'Set parent issue', keys: '⇧⌘p' },
-  { text: 'Add sub-issue', keys: '⇧⌘o' },
-  { text: 'Create new issue', keys: 'c' },
-  { text: 'Create new issue from template', keys: '⌥c' },
-  { text: 'Move to project', keys: '⇧p' },
-];
 
 export const KeyboardShortcuts = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const illustrationWrapperRef = useRef<HTMLDivElement>(null);
+  const activeShortcutIndexRef = useRef<number>(0);
+  const timeoutRef = useRef<NodeJS.Timeout>();
 
-  const onShortcutButtonClick = (
-    e: React.MouseEvent<HTMLButtonElement>,
-    keys: string
-  ) => {
-    e.preventDefault();
+  const scheduleTimeout = () => {
+    timeoutRef.current = setTimeout(goToNextShortcut, 2500);
+  };
+
+  useEffect(() => {
+    scheduleTimeout();
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
+
+  const goToShortcut = (index: number) => {
+    clearTimeout(timeoutRef.current);
+
     if (!wrapperRef.current) return;
 
+    const shortcut = wrapperRef.current.querySelector<HTMLButtonElement>(
+      `button:nth-child(${index + 1})`
+    );
+
+    if (!shortcut) return;
+
     wrapperRef.current.scrollTo({
-      left: e.currentTarget.offsetLeft - wrapperRef.current.clientWidth / 2,
+      left: shortcut.offsetLeft - wrapperRef.current.clientWidth / 2,
       behavior: 'smooth',
     });
 
@@ -42,12 +43,24 @@ export const KeyboardShortcuts = () => {
       .querySelectorAll('.active')
       .forEach((el) => el.classList.remove('active'));
 
+    const keys = shortcut.dataset.keys || '';
     const keyArray = keys.split('');
     const keyElements = keyArray.map((key) =>
       illustrationWrapperRef.current?.querySelector(`[data-key="${key}"]`)
     );
 
     keyElements.forEach((element) => element?.classList.add('active'));
+
+    activeShortcutIndexRef.current = index;
+    scheduleTimeout();
+  };
+
+  const goToNextShortcut = () =>
+    goToShortcut((activeShortcutIndexRef.current + 1) % Shortcuts.length);
+
+  const onShortcutButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    goToShortcut(Number(e.currentTarget.dataset.index));
   };
 
   return (
@@ -60,10 +73,12 @@ export const KeyboardShortcuts = () => {
           ref={wrapperRef}
           className="mask-shortcutkeys flex min-h-[4rem] max-w-full snap-x snap-mandatory gap-2 overflow-auto pb-8"
         >
-          {Shortcuts.map((shortcut) => (
+          {Shortcuts.map((shortcut, index) => (
             <Button
               key={shortcut.text}
-              onClick={(e) => onShortcutButtonClick(e, shortcut.keys)}
+              data-index={index}
+              data-keys={shortcut.keys}
+              onClick={onShortcutButtonClick}
               intent="secondary"
               className="shrink-0 snap-center first:ml-[50vw] last:mr-[50vw]"
             >

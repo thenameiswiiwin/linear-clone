@@ -50,7 +50,7 @@ export const UnlikeAnyTools = () => (
             href="/method"
             intent="secondary"
             size="sm"
-            className="absolute bottom-[20rem] translate-y-[30%] scale-[0.8] opacity-0 backdrop-blur-[12px] transition-[transform,opacity] group-hover:transform-none group-hover:opacity-100 [&_.highlight]:text-xs"
+            className="absolute bottom-[20rem] translate-y-[30%] scale-[0.8] opacity-0 backdrop-blur-[12px] transition-[transform,opacity] group-hover:transform-none group-hover:opacity-100 [&_.highlight]:text-[1.1rem]"
           >
             <Highlight>Linear Method</Highlight>
             Product Principles
