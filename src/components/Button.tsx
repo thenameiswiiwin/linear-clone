@@ -49,6 +49,7 @@ export const Highlight = ({
 }: {
   children: React.ReactNode;
   className?: string;
+  // eslint-disable-next-line tailwindcss/no-custom-classname
 }) => <span className={clsx('highlight', className)}>{children}</span>;
 
 export const Button = ({ children, intent, size, ...props }: ButtonProps) => {
