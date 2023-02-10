@@ -13,7 +13,6 @@ export const KeyboardShortcuts = () => {
   const timeoutRef = useRef<NodeJS.Timeout>();
 
   const scheduleTimeout = () => {
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     timeoutRef.current = setTimeout(goToNextShortcut, 2500);
   };
 
@@ -68,7 +67,7 @@ export const KeyboardShortcuts = () => {
     <>
       <div
         ref={illustrationWrapperRef}
-        className="mask-keyboard absolute top-0 -left-12 h-full max-h-[30rem] w-[200%] md:relative md:left-auto md:w-full"
+        className="mask-keyboard absolute top-0 -left-12 md:left-auto max-h-[30rem] w-[200%] md:relative h-full md:w-full"
       >
         <KeyboardIllustration />;
       </div>
