@@ -1,5 +1,7 @@
 # Rebuilding Linear.app with Next JS 13, Tailwind CSS and TypeScript
 
+[Show Case](https://linear-clone-tau.vercel.app/)
+
 Rebuilding Linear.app with Next JS 13, Tailwind CSS, TypeScript, ESLint, Prettier, Husky, Lint-Staged, Commitlint, PostCSS, Tailwind CSS.
 
 ### Features
