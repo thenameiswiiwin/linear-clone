@@ -11,7 +11,7 @@ export const HomepageHero = () => (
       size="sm"
       className="translate-y-[-1rem] animate-fade-in opacity-0"
     >
-      Linear 2022 Release - Built for scale
+      <span>Linear 2022 Release - Built for scale</span>
       <Highlight>→</Highlight>
     </Button>
     <HeroTitle className="translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">

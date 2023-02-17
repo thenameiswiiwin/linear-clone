@@ -27,14 +27,14 @@ const buttonClasses = cva('inline-flex items-center rounded-full', {
         '[&_.highlight]:ml-2',
       ],
       secondary: [
-        'backdrop-filter-[12px] border border-gray-100 bg-white bg-opacity-10 text-gray-200 transition-colors ease-in hover:bg-opacity-20',
-        '[&_.highlight]:last:-ml-2 [&_.highlight]:last:mr-2 [&_.highlight]:first:ml-2 [&_.highlight]:first:-mr-2 [&_.highlight]:rounded-full [&_.highlight]:bg-gray-100 [&_.highlight]:px-2',
+        'backdrop-filter-[12px] border border-gray-100 bg-white bg-opacity-10 text-gray-200 transition-colors ease-in hover:bg-opacity-20 backdrop-blur-[12px]',
+        '[&_.highlight]:bg-gray-100 [&_.highlight]:rounded-full [&_.highlight]:px-2 [&_.highlight:last-child]:ml-2 [&_.highlight:last-child]:-mr-2 [&_.highlight:first-child]:-ml-2 [&_.highlight:first-child]:mr-2',
       ],
     },
     size: {
       sm: 'h-7 px-3 text-xs',
-      md: 'h-8 px-4 text-md',
-      lg: 'h-12 px-6 text-lg',
+      md: 'h-8 px-4 text-sm',
+      lg: 'h-12 px-6 text-md',
     },
   },
   defaultVariants: {
