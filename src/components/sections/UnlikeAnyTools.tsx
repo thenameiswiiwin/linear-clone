@@ -42,10 +42,14 @@ export const UnlikeAnyTools = () => (
           <div className="pointer-events-none absolute top-[-8rem] w-[130%]">
             <LogoLightIllustration />
           </div>
-          <p className="mb-4 text-3xl">Designed for modern software teams</p>
-          <p className="text-md text-gray-300">
-            Comes with built-in workflows that create focus and routine.
-          </p>
+          <div className="absolute bottom-0 p-10 space-y-4">
+            <p className="text-3xl leading-tight">
+              Designed for modern software teams
+            </p>
+            <p className="text-md text-gray-300">
+              Comes with built-in workflows that create focus and routine.
+            </p>
+          </div>
           <Button
             href="/method"
             intent="secondary"
