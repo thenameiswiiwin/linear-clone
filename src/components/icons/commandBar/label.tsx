@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 type LabelType = 'bug' | 'feature' | 'improvement';
 
@@ -10,7 +10,7 @@ const typeClassNames = {
 
 export const LabelIcon = ({ type }: { type: LabelType }) => (
   <div
-    className={classNames(
+    className={clsx(
       'flex h-[0.9rem] w-[0.9rem] items-center justify-center rounded-full',
       typeClassNames[type]
     )}
