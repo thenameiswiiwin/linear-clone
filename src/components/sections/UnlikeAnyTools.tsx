@@ -1,4 +1,5 @@
 import { Button, Highlight } from '@components/Button';
+import { CommandMenu } from '@components/CommandMenu';
 import { Container } from '@components/Container';
 import { ChevronIcon } from '@components/icons/chevron';
 import { LogoLightIllustration } from '@components/illustrations/LogoLight';
@@ -42,7 +43,7 @@ export const UnlikeAnyTools = () => (
           <div className="pointer-events-none absolute top-[-8rem] w-[130%]">
             <LogoLightIllustration />
           </div>
-          <div className="absolute bottom-0 p-10 space-y-4">
+          <div className="absolute bottom-0 space-y-4 p-10">
             <p className="text-3xl leading-tight">
               Designed for modern software teams
             </p>
@@ -61,11 +62,14 @@ export const UnlikeAnyTools = () => (
             <ChevronIcon fill="#8A8F98" className="ml-1" />
           </Button>
         </div>
-        <div className="flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:max-w-[calc(66.66%-12px)] md:basis-[calc(66.66%-12px)] md:p-14">
-          <p className="mb-4 text-3xl">Meet your command line</p>
-          <p className="text-md text-gray-300">
-            Complete any action in seconds with the global command menu.
-          </p>
+        <div className="relative flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:max-w-[calc(66.66%-12px)] md:basis-[calc(66.66%-12px)] md:p-14">
+          <CommandMenu />
+          <div>
+            <p className="mb-4 text-3xl">Meet your command line</p>
+            <p className="text-md text-gray-300">
+              Complete any action in seconds with the global command menu.
+            </p>
+          </div>
         </div>
       </div>
     </div>
