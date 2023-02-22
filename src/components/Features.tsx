@@ -19,7 +19,7 @@ type FeatureTitleProps = {
 
 const FeatureTile = ({ children }: FeatureTitleProps) => {
   return (
-    <h2 className="text-gradient text-center text-6xl md:text-8xl mb-11">
+    <h2 className="text-gradient mb-11 text-center text-6xl md:text-8xl">
       {children}
     </h2>
   );
@@ -33,12 +33,12 @@ type FeatureMainProps = {
 const FeatureMain = ({ image, text }: FeatureMainProps) => {
   return (
     <div className="w-[78rem] max-w-[90%] text-center">
-      <div>
+      <div className="relative rounded-[14px] before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0)120%)] before:p-[1px] before:[mask:linear-gradient(black,black)content-boxcontent-box,linear-gradient(black,black)] before:[mask-composite:xor] after:absolute after:inset-0 after:rounded-[inherit] after:bg-[rgba(255,255,255,0.15)] after:[mask:linear-gradient(black,transparent)]">
         <Image src={image} alt="issues" className="h-auto w-full" />
-        <p className="leading-tight w-[80%] mx-auto mt-16 text-4xl text-white">
-          {text}
-        </p>
       </div>
+      <p className="mx-auto mt-16 w-[80%] text-4xl leading-tight text-white">
+        {text}
+      </p>
     </div>
   );
 };

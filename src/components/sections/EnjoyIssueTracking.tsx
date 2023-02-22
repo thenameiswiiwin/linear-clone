@@ -16,7 +16,7 @@ export const EnjoyIssueTracking = () => {
     <Features>
       <Features.Title>
         Issue tracking
-        <br /> you'll enjoy using
+        <br /> you&lsquo;ll enjoy using
       </Features.Title>
       <Features.Main
         image={IssuesImg}
