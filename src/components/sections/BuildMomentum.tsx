@@ -4,13 +4,13 @@ import CyclesImg from '@assets/images/cycles.webp';
 import { Features } from '@components/Features';
 
 import {
-  AutomatedBacklogIcon,
-  CustomViewsIcon,
-  DiscussionIcon,
-  IssuesIcon,
-  ParentSubIcon,
-  WorkflowsIcon,
-} from '../icons/features';
+  ConfigurableIcon,
+  CreepIcon,
+  DelaysIcon,
+  PreparedIcon,
+  ScheduledIcon,
+  TrackingIcon,
+} from '../icons/features/buildMomentum';
 
 export const BuildMomentum = () => {
   return (
@@ -30,32 +30,32 @@ export const BuildMomentum = () => {
       <Features.Grid
         features={[
           {
-            icon: ParentSubIcon,
+            icon: TrackingIcon,
             title: 'Automatic tracking.',
             text: 'Any started issues are added to the current cycle.',
           },
           {
-            icon: AutomatedBacklogIcon,
+            icon: ScheduledIcon,
             title: 'Scheduled.',
             text: 'Unfinished work rolls over to the next cycle automatically.',
           },
           {
-            icon: WorkflowsIcon,
+            icon: ConfigurableIcon,
             title: 'Fully configurable.',
             text: 'Define start date, end date, duration, and more.',
           },
           {
-            icon: CustomViewsIcon,
+            icon: DelaysIcon,
             title: 'Predict delays.',
             text: 'Get warnings for at-risk cycles.',
           },
           {
-            icon: DiscussionIcon,
+            icon: CreepIcon,
             title: 'Scope creep.',
             text: 'Understand which issues are added mid-cycle.',
           },
           {
-            icon: IssuesIcon,
+            icon: PreparedIcon,
             title: 'Be prepared.',
             text: 'Schedule work in advance with upcoming cycles.',
           },

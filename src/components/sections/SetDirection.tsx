@@ -12,7 +12,7 @@ import {
   IssuesIcon,
   ParentSubIcon,
   WorkflowsIcon,
-} from '../icons/features';
+} from '../icons/features/issueTracking';
 
 export const SetDirection = () => {
   return (
