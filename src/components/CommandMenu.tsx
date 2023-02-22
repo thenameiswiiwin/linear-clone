@@ -1,81 +1,103 @@
+import {
+  AddLabels,
+  AssignToIcon,
+  BacklogIcon,
+  ChangePriorityIcon,
+  ChangeStatusIcon,
+  DoneIcon,
+  HighIcon,
+  InProgressIcon,
+  LabelIcon,
+  LowIcon,
+  MediumIcon,
+  NoPriorityIcon,
+  PersonIcon,
+  TodoIcon,
+  UrgentIcon,
+} from '@components/icons/commandBar';
+
 const CommandOptions = [
   {
     label: 'Assign to...',
-    icon: () => {},
+    icon: AssignToIcon,
     subOptions: [
       {
         label: 'Jori',
-        icon: () => {},
+        icon: PersonIcon,
       },
       {
         label: 'Karri',
-        icon: () => {},
+        icon: PersonIcon,
       },
       {
         label: 'Tuomas',
-        icon: () => {},
+        icon: PersonIcon,
       },
     ],
   },
   {
     label: 'Change status...',
-    icon: () => {},
+    icon: ChangeStatusIcon,
     subOptions: [
       {
         label: 'Backlog',
-        icon: () => {},
+        icon: BacklogIcon,
       },
       {
         label: 'Todo',
-        icon: () => {},
+        icon: TodoIcon,
       },
       {
         label: 'In Progress',
-        icon: () => {},
+        icon: InProgressIcon,
       },
       {
         label: 'Done',
-        icon: () => {},
+        icon: DoneIcon,
       },
     ],
   },
   {
     label: 'Change priority...',
-    icon: () => {},
+    icon: ChangePriorityIcon,
     subOptions: [
       {
         label: 'No priority',
-        icon: () => {},
+        icon: NoPriorityIcon,
       },
       {
         label: 'Urgent',
-        icon: () => {},
+        icon: UrgentIcon,
       },
       {
         label: 'High',
-        icon: () => {},
+        icon: HighIcon,
       },
       {
         label: 'Medium',
-        icon: () => {},
+        icon: MediumIcon,
+      },
+      {
+        label: 'Low',
+        icon: LowIcon,
       },
     ],
   },
   {
     label: 'Add label...',
-    icon: () => {},
+    icon: AddLabels,
     subOptions: [
       {
         label: 'Bug',
-        icon: () => {},
+        icon: () => <LabelIcon type="bug" />,
       },
       {
         label: 'Feature',
-        icon: () => {},
+        icon: () => <LabelIcon type="feature" />,
       },
       {
         label: 'Improvement',
-        icon: () => {},
+        icon: () => <LabelIcon type="improvement" />,
       },
     ],
   },
@@ -92,10 +114,15 @@ export const CommandMenu = () => {
         placeholder="Type a command or search..."
         className="w-full bg-transparent p-5 text-lg outline-none"
       />
-      <div className="flex flex-col text-sm text-gray-200">
-        {CommandOptions.map((option) => (
-          <button key={option.label} type="button">
-            {option.label}
+      <div className="flex flex-col text-sm text-gray-200 w-full">
+        {CommandOptions.map(({ label, icon: Icon }) => (
+          <button
+            key={label}
+            type="button"
+            className="flex items-center w-full h-[4.6rem] px-5 hover:bg-white/[0.05]"
+          >
+            <Icon />
+            <span className="ml-3">{label}</span>
           </button>
         ))}
       </div>
