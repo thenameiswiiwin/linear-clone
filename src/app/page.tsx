@@ -1,6 +1,7 @@
 import { Container } from '@components/Container';
 import { StarsIllustration } from '@components/illustrations/Stars';
 import { Clients } from '@components/sections/Clients';
+import { EnjoyIssueTracking } from '@components/sections/EnjoyIssueTracking';
 import { HomepageHero } from '@components/sections/HomepageHero';
 import { UnlikeAnyTools } from '@components/sections/UnlikeAnyTools';
 import clsx from 'clsx';
@@ -25,9 +26,8 @@ export default function Homepage() {
       >
         <StarsIllustration />
       </div>
-      <Container>
-        <UnlikeAnyTools />
-      </Container>
+      <UnlikeAnyTools />
+      <EnjoyIssueTracking />
     </>
   );
 }
