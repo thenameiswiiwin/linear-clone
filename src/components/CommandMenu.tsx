@@ -152,7 +152,7 @@ export const CommandMenu = () => {
     <div ref={commandMenuRef} className={clsx(opened && 'opened')}>
       <div
         className={clsx(
-          'absolute left-1/2 flex w-[90vw] max-w-[64rem] -translate-x-1/2 flex-col items-start rounded-lg border border-gray-100 bg-gray-100 transition-[transform,opacity]',
+          'absolute left-1/2 flex w-[90vw] max-w-[64rem] -translate-x-1/2 flex-col items-start rounded-xl border border-gray-100 bg-gray-100 shadow-[rgb(0_0_0_/_35%)_0px_7px_32px] transition-[transform,opacity]',
           opened && 'opened translate-y-[2.4rem] opacity-100',
           !opened && 'translate-y-[12.8rem] opacity-60'
         )}
@@ -170,8 +170,14 @@ export const CommandMenu = () => {
             <button
               key={label}
               type="button"
-              onClick={() => {
-                setSelectedOption('subOptions' in menuItem ? index : null);
+              onClick={(e) => {
+                const clickedRootItem = 'subOptions' in menuItem;
+                setSelectedOption(clickedRootItem ? index : null);
+                if (!clickedRootItem) {
+                  setOpened(false);
+                  // Stop propagation to prevent the click event from bubbling up to the window and triggering toggleCommandMenu. This should be prevented because if that funtion ran, it would otherwise reopen the menu again, because it registers a click INSIDE the menu.
+                  e.stopPropagation();
+                }
               }}
               className="commandMenuBtn flex h-[4.6rem] w-full items-center gap-3 px-5 first:bg-white/[0.15] hover:bg-white/[0.05]"
             >
