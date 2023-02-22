@@ -7,13 +7,19 @@ import { Container } from './Container';
 type FeaturesProps = {
   children: React.ReactNode;
   color: string;
+  colorDark: string;
 };
 
-export const Features = ({ children, color }: FeaturesProps) => {
+export const Features = ({ children, color, colorDark }: FeaturesProps) => {
   return (
     <section
-      className="relative flex flex-col items-center py-[12.8rem] after:absolute after:inset-0 after:bg-[radial-gradient(ellipse_100%_40%_at_50%_60%,rgba(var(--feature-color),0.1),transparent)]"
-      style={{ '--feature-color': color } as React.CSSProperties}
+      className="relative flex flex-col items-center py-[12.8rem] before:absolute before:h-[40rem] before:w-full before:rotate-180 before:bg-[conic-gradient(from_90deg_at_80%_50%,#000212,rgb(var(--feature-color-dark))),conic-gradient(from_270deg_at_20%_50%,rgb(var(--feature-color-dark)),#000212)] before:bg-no-repeat before:opacity-40 before:[background-size:50%_100%,50%_100%] before:[background-position:1%_0%,99%_0%] before:[mask:radial-gradient(100%_50%_at_center_center,black,transparent)] after:absolute after:inset-0 after:bg-[radial-gradient(ellipse_100%_40%_at_50%_60%,rgba(var(--feature-color),0.1),transparent)]"
+      style={
+        {
+          '--feature-color': color,
+          '--feature-color-dark': colorDark,
+        } as React.CSSProperties
+      }
     >
       <div className="my-[25.2rem] w-full">{children}</div>
     </section>
