@@ -6,13 +6,13 @@ import RoadmapImg from '@assets/images/roadmap.webp';
 import { Features } from '@components/Features';
 
 import {
-  AutomatedBacklogIcon,
-  CustomViewsIcon,
-  DiscussionIcon,
-  IssuesIcon,
-  ParentSubIcon,
-  WorkflowsIcon,
-} from '../icons/features/issueTracking';
+  DocumentsIcon,
+  InsightsIcon,
+  MultiTeamIcon,
+  NotificationsIcon,
+  RoadmapsIcon,
+  TimelineIcon,
+} from '../icons/features/setDirection';
 
 export const SetDirection = () => {
   return (
@@ -32,32 +32,32 @@ export const SetDirection = () => {
       <Features.Grid
         features={[
           {
-            icon: ParentSubIcon,
+            icon: MultiTeamIcon,
             title: 'Multi-team projects.',
             text: 'Collaborate across teams and departments.',
           },
           {
-            icon: AutomatedBacklogIcon,
+            icon: DocumentsIcon,
             title: 'Project documents.',
             text: 'Write project briefs and specs directly in Linear.',
           },
           {
-            icon: WorkflowsIcon,
+            icon: RoadmapsIcon,
             title: 'Custom roadmaps.',
             text: 'Organize projects across multiple roadmaps.',
           },
           {
-            icon: CustomViewsIcon,
+            icon: TimelineIcon,
             title: 'Timeline view.',
             text: 'Visualize the product journey ahead.',
           },
           {
-            icon: DiscussionIcon,
+            icon: InsightsIcon,
             title: 'Project insights.',
             text: 'Track scope, velocity, and progress over time.',
           },
           {
-            icon: IssuesIcon,
+            icon: NotificationsIcon,
             title: 'Personal notifications.',
             text: 'Stay in the loop on project activity and updates.',
           },
