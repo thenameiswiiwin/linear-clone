@@ -143,6 +143,7 @@ export const CommandMenu = () => {
   useEffect(() => {
     if (!commandMenuRef.current) return;
     commandMenuRef.current.classList.remove('animate-bounce');
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     commandMenuRef.current.clientWidth;
     commandMenuRef.current.classList.add('animate-bounce');
   }, [selectedOption]);
