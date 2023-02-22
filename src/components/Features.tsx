@@ -4,11 +4,15 @@ import Image from 'next/image';
 
 type FeaturesProps = {
   children: React.ReactNode;
+  color: string;
 };
 
-export const Features = ({ children }: FeaturesProps) => {
+export const Features = ({ children, color }: FeaturesProps) => {
   return (
-    <section className="flex flex-col items-center py-[12.8rem]">
+    <section
+      className="flex flex-col items-center py-[12.8rem]"
+      style={{ '--feature-color': color } as React.CSSProperties}
+    >
       {children}
     </section>
   );
@@ -84,7 +88,7 @@ const FeatureCards = ({ features }: FeatureCardsProps) => {
       {features.map(({ title, text, image, imgClassName }) => (
         <div
           key={title}
-          className="relative aspect-[1.1/1] overflow-hidden rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-14"
+          className="relative aspect-[1.1/1] overflow-hidden rounded-[4.8rem] border border-gray-100 bg-[radial-gradient(ellipse_at_center,rgba(var(--feature-color),0.15),transparent)] p-14 before:absolute before:inset-0 before:bg-glass-gradient"
         >
           <h3 className="mb-2 text-2xl text-white">{title}</h3>
           <p className="max-w-[31rem] text-md text-gray-300">{text}</p>
