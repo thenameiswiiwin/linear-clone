@@ -41,13 +41,19 @@ type FeatureMainProps = {
   image: StaticImageData;
   text: string;
   title: React.ReactNode;
+  imgSize?: 'small' | 'large';
 };
 
-const FeatureMain = ({ image, text, title }: FeatureMainProps) => {
+const FeatureMain = ({ image, text, title, imgSize }: FeatureMainProps) => {
   return (
     <>
       <div className="relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_50%_50%_at_center,rgba(var(--feature-color),0.1),transparent)]">
-        <Container className="w-[78rem] max-w-[90%] text-center">
+        <Container
+          className={clsx(
+            'max-w-[90%] text-center',
+            imgSize === 'small' ? 'w-[78rem]' : 'w-[102.4rem]'
+          )}
+        >
           <h2 className="text-gradient mb-11 translate-y-[40%] text-center text-6xl [transition:transform_1000ms_cubic-bezier(0.3,1.17,0.55,0.99)0s] md:text-8xl [.is-visible_&]:translate-y-0">
             {title}
           </h2>

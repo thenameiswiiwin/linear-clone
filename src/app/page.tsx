@@ -1,5 +1,6 @@
 import { Container } from '@components/Container';
 import { StarsIllustration } from '@components/illustrations/Stars';
+import { BuildMomentum } from '@components/sections/BuildMomentum';
 import { Clients } from '@components/sections/Clients';
 import { EnjoyIssueTracking } from '@components/sections/EnjoyIssueTracking';
 import { HomepageHero } from '@components/sections/HomepageHero';
@@ -28,6 +29,7 @@ export default function Homepage() {
       </div>
       <UnlikeAnyTools />
       <EnjoyIssueTracking />
+      <BuildMomentum />
     </>
   );
 }
