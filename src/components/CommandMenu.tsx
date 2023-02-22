@@ -152,8 +152,9 @@ export const CommandMenu = () => {
     <div ref={commandMenuRef} className={clsx(opened && 'opened')}>
       <div
         className={clsx(
-          'absolute left-1/2 flex w-[90vw] max-w-[64rem] -translate-x-1/2 flex-col items-start rounded-xl border border-gray-100 bg-gray-100 shadow-[rgb(0_0_0_/_35%)_0px_7px_32px] transition-[transform,opacity]',
-          opened && 'opened translate-y-[2.4rem] opacity-100',
+          'absolute left-[calc(50%+7.5rem)] flex w-[90vw] max-w-[64rem] -translate-x-1/2 flex-col items-start rounded-xl border border-gray-100 bg-gray-100 shadow-[rgb(0_0_0_/_35%)_0px_7px_32px] transition-[transform,opacity] md:left-1/2',
+          opened &&
+            'opened translate-y-[12.8rem] opacity-100 md:translate-y-[2.4rem]',
           !opened && 'translate-y-[12.8rem] opacity-60'
         )}
       >
