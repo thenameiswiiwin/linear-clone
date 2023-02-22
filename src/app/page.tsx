@@ -4,6 +4,7 @@ import { BuildMomentum } from '@components/sections/BuildMomentum';
 import { Clients } from '@components/sections/Clients';
 import { EnjoyIssueTracking } from '@components/sections/EnjoyIssueTracking';
 import { HomepageHero } from '@components/sections/HomepageHero';
+import { SetDirection } from '@components/sections/SetDirection';
 import { UnlikeAnyTools } from '@components/sections/UnlikeAnyTools';
 import clsx from 'clsx';
 
@@ -30,6 +31,7 @@ export default function Homepage() {
       <UnlikeAnyTools />
       <EnjoyIssueTracking />
       <BuildMomentum />
+      <SetDirection />
     </>
   );
 }

@@ -1,7 +1,8 @@
 'use client';
 
-import { Features } from '@components/Features';
 import CyclesImg from '@assets/images/cycles.webp';
+import { Features } from '@components/Features';
+
 import {
   AutomatedBacklogIcon,
   CustomViewsIcon,
