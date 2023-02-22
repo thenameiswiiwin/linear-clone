@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     animation: {
+      bounce: '240ms ease 0s running bounce',
       'glow-line-horizontal':
         'glow-line-horizontal var(--animation-duration) ease-in forwards',
       'glow-line-vertical':
@@ -66,6 +67,11 @@ module.exports = {
       '8xl': ['8rem', '1'],
     },
     keyframes: {
+      bounce: {
+        '50%': {
+          transform: 'scale(0.98)',
+        },
+      },
       'glow-line-horizontal': {
         '0%': { opacity: 0, transform: 'translateX(0)' },
         '5%': { opacity: 1, transform: 'translateX(0)' },
