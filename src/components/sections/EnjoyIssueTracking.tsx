@@ -14,11 +14,13 @@ import {
 export const EnjoyIssueTracking = () => {
   return (
     <Features color="194,97,254">
-      <Features.Title>
-        Issue tracking
-        <br /> you&lsquo;ll enjoy using
-      </Features.Title>
       <Features.Main
+        title={
+          <>
+            Issue tracking
+            <br /> you&lsquo;ll enjoy using
+          </>
+        }
         image={IssuesImg}
         text="Create tasks in seconds, discuss issues in context, and breeze through your work in views tailored to you and your team.
 "
