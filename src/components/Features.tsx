@@ -1,6 +1,9 @@
+'use client';
+
 import clsx from 'clsx';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 
 import { Container } from './Container';
 
@@ -11,9 +14,17 @@ type FeaturesProps = {
 };
 
 export const Features = ({ children, color, colorDark }: FeaturesProps) => {
+  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: false });
+
   return (
     <section
-      className="relative flex flex-col items-center py-[12.8rem] before:absolute before:h-[40rem] before:w-full before:rotate-180 before:bg-[conic-gradient(from_90deg_at_80%_50%,#000212,rgb(var(--feature-color-dark))),conic-gradient(from_270deg_at_20%_50%,rgb(var(--feature-color-dark)),#000212)] before:bg-no-repeat before:opacity-40 before:[background-size:50%_100%,50%_100%] before:[background-position:1%_0%,99%_0%] before:[mask:radial-gradient(100%_50%_at_center_center,black,transparent)] after:absolute after:inset-0 after:bg-[radial-gradient(ellipse_100%_40%_at_50%_60%,rgba(var(--feature-color),0.1),transparent)]"
+      ref={ref}
+      className={clsx(
+        'after:bg-[radial-gradient(ellipse_100%_40%_at_50%_60%,rgba(var(--feature-color),0.1),transparent) relative flex flex-col items-center overflow-x-clip before:pointer-events-none before:absolute before:h-[40rem] before:w-full before:bg-[conic-gradient(from_90deg_at_80%_50%,#000212,rgb(var(--feature-color-dark))),conic-gradient(from_270deg_at_20%_50%,rgb(var(--feature-color-dark)),#000212)] before:bg-no-repeat before:transition-[transform,opacity] before:duration-1000 before:ease-in before:[mask:radial-gradient(100%_50%_at_center_center,_black,_transparent)] before:[background-size:50%_100%,50%_100%] before:[background-position:1%_0%,99%_0%] after:pointer-events-none after:absolute after:inset-0',
+        inView &&
+          'is-visible before:opacity-100 before:[transform:rotate(180deg)_scale(2)]',
+        !inView && 'before:rotate-180 before:opacity-40'
+      )}
       style={
         {
           '--feature-color': color,
@@ -37,10 +48,10 @@ const FeatureMain = ({ image, text, title }: FeatureMainProps) => {
     <>
       <div className="relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_50%_50%_at_center,rgba(var(--feature-color),0.1),transparent)]">
         <Container className="w-[78rem] max-w-[90%] text-center">
-          <h2 className="text-gradient mb-11 text-center text-6xl md:text-8xl">
+          <h2 className="text-gradient mb-11 translate-y-[40%] text-center text-6xl [transition:transform_1000ms_cubic-bezier(0.3,1.17,0.55,0.99)0s] md:text-8xl [.is-visible_&]:translate-y-0">
             {title}
           </h2>
-          <div className="relative rounded-[14px] before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0)120%)] before:p-[1px] before:[mask:linear-gradient(black,black)content-box_content-box,linear-gradient(black,black)] before:[mask-composite:xor] after:absolute after:inset-0 after:rounded-[inherit] after:bg-[rgba(255,255,255,0.15)] after:[mask:linear-gradient(black,transparent)]">
+          <div className="relative rounded-[14px] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0)120%)] before:p-[1px] before:[mask:linear-gradient(black,black)content-box_content-box,linear-gradient(black,black)] before:[mask-composite:xor] after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:bg-[rgba(255,255,255,0.15)] after:[mask:linear-gradient(black,transparent)]">
             <Image src={image} alt="issues" className="h-auto w-full" />
           </div>
         </Container>
@@ -97,7 +108,7 @@ const FeatureCards = ({ features }: FeatureCardsProps) => {
         {features.map(({ title, text, image, imgClassName }) => (
           <div
             key={title}
-            className="relative aspect-[1.1/1] overflow-hidden rounded-[2.4rem] border border-gray-100 bg-[radial-gradient(ellipse_at_center,rgba(var(--feature-color),0.15),transparent)] py-6 px-8 before:absolute before:inset-0 before:bg-glass-gradient md:rounded-[4.8rem] md:p-14"
+            className="relative aspect-[1.1/1] overflow-hidden rounded-[2.4rem] border border-gray-100 bg-[radial-gradient(ellipse_at_center,rgba(var(--feature-color),0.15),transparent)] py-6 px-8 before:pointer-events-none before:absolute before:inset-0 before:bg-glass-gradient md:rounded-[4.8rem] md:p-14"
           >
             <h3 className="mb-2 text-2xl text-white">{title}</h3>
             <p className="max-w-[31rem] text-md text-gray-300">{text}</p>

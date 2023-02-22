@@ -1,3 +1,5 @@
+'use client';
+
 import CardBoardImg from '@assets/images/card-board.webp';
 import CardViewsImg from '@assets/images/card-views.webp';
 import IssuesImg from '@assets/images/issues.webp';
