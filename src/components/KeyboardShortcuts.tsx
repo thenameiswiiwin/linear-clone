@@ -75,7 +75,7 @@ export const KeyboardShortcuts = () => {
       <div className="my-7 hidden min-h-[4rem] w-full overflow-hidden md:block">
         <div
           ref={wrapperRef}
-          className="mask-shortcutkeys flex min-h-[4rem] max-w-full snap-x snap-mandatory gap-2 overflow-auto pb-8"
+          className="mask-shortcutkeys flex h-[6rem] max-w-full snap-x snap-mandatory gap-2 overflow-auto pb-8"
         >
           {Shortcuts.map((shortcut, index) => (
             <Button
@@ -87,7 +87,7 @@ export const KeyboardShortcuts = () => {
               className="shrink-0 snap-center first:ml-[50vw] last:mr-[50vw]"
             >
               <Highlight className="uppercase">{shortcut.keys}</Highlight>
-              {shortcut.text}
+              <span className="ml-[.8rem]">{shortcut.text}</span>
             </Button>
           ))}
         </div>

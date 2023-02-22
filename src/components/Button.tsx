@@ -19,7 +19,7 @@ interface ButtonAsButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 type ButtonProps = ButtonBaseProps &
   (ButtonAsAnchorProps | ButtonAsButtonProps);
 
-const buttonClasses = cva('inline-flex items-center rounded-full', {
+const buttonClasses = cva('relative inline-flex items-center rounded-full', {
   variants: {
     intent: {
       primary: [
