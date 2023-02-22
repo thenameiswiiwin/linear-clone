@@ -1,3 +1,5 @@
+'use client';
+
 import {
   AddLabels,
   AssignToIcon,
@@ -15,6 +17,8 @@ import {
   TodoIcon,
   UrgentIcon,
 } from '@components/icons/commandBar';
+import clsx from 'clsx';
+import { useEffect, useRef, useState } from 'react';
 
 const CommandOptions = [
   {
@@ -104,8 +108,33 @@ const CommandOptions = [
 ];
 
 export const CommandMenu = () => {
+  const [opened, setOpened] = useState(false);
+  const commandMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const toggleCommandMenu = (e: MouseEvent) => {
+      const clickedOutside =
+        commandMenuRef.current &&
+        !commandMenuRef.current.contains(e.target as Node);
+      setOpened(!clickedOutside);
+    };
+
+    window.addEventListener('click', toggleCommandMenu);
+
+    return () => {
+      window.removeEventListener('click', toggleCommandMenu);
+    };
+  }, []);
+
   return (
-    <div className="absolute top-1/2 left-1/2 flex w-[90vw] max-w-[64rem] -translate-x-1/2 -translate-y-1/2 flex-col items-start rounded-lg border border-gray-100 bg-gray-100">
+    <div
+      ref={commandMenuRef}
+      className={clsx(
+        'transition-[transform,opacity] absolute left-1/2 flex w-[90vw] max-w-[64rem] -translate-x-1/2 flex-col items-start rounded-lg border border-gray-100 bg-gray-100',
+        opened && 'translate-y-[2.4rem] opacity-100',
+        !opened && 'translate-y-[12.8rem] opacity-60'
+      )}
+    >
       <span className="ml-4 mt-2 bg-white/[0.05] px-2 text-xs leading-10 text-white/50">
         LIN-111 Walkway lighting
       </span>
@@ -114,12 +143,12 @@ export const CommandMenu = () => {
         placeholder="Type a command or search..."
         className="w-full bg-transparent p-5 text-lg outline-none"
       />
-      <div className="flex flex-col text-sm text-gray-200 w-full">
+      <div className="flex w-full flex-col text-sm text-gray-200">
         {CommandOptions.map(({ label, icon: Icon }) => (
           <button
             key={label}
             type="button"
-            className="flex items-center w-full h-[4.6rem] px-5 hover:bg-white/[0.05]"
+            className="flex h-[4.6rem] w-full items-center px-5 hover:bg-white/[0.05]"
           >
             <Icon />
             <span className="ml-3">{label}</span>
