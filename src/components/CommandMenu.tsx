@@ -18,7 +18,7 @@ import {
   UrgentIcon,
 } from '@components/icons/commandBar';
 import clsx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 const CommandOptions = [
   {
@@ -105,17 +105,22 @@ const CommandOptions = [
       },
     ],
   },
-];
+] as const;
 
 export const CommandMenu = () => {
   const [opened, setOpened] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const commandMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const toggleCommandMenu = (e: MouseEvent) => {
+      if (!commandMenuRef.current) return;
+      const isMenuBtn =
+        e.target instanceof Element &&
+        e.target.classList.contains('commandMenuBtn');
       const clickedOutside =
-        commandMenuRef.current &&
-        !commandMenuRef.current.contains(e.target as Node);
+        !isMenuBtn && !commandMenuRef.current.contains(e.target as Node);
+
       setOpened(!clickedOutside);
     };
 
@@ -125,6 +130,15 @@ export const CommandMenu = () => {
       window.removeEventListener('click', toggleCommandMenu);
     };
   }, []);
+
+  const currentOption = useMemo(() => {
+    const options =
+      selectedOption === null
+        ? CommandOptions
+        : CommandOptions[selectedOption].subOptions;
+
+    return options;
+  }, [selectedOption]);
 
   return (
     <div
@@ -144,14 +158,17 @@ export const CommandMenu = () => {
         className="w-full bg-transparent p-5 text-lg outline-none"
       />
       <div className="flex w-full flex-col text-sm text-gray-200">
-        {CommandOptions.map(({ label, icon: Icon }) => (
+        {currentOption.map(({ label, icon: Icon, ...menuItem }, index) => (
           <button
             key={label}
             type="button"
-            className="flex h-[4.6rem] w-full items-center px-5 hover:bg-white/[0.05]"
+            onClick={() => {
+              setSelectedOption('subOptions' in menuItem ? index : null);
+            }}
+            className="gap-3 commandMenuBtn flex h-[4.6rem] w-full items-center px-5 hover:bg-white/[0.05]"
           >
             <Icon />
-            <span className="ml-3">{label}</span>
+            {label}
           </button>
         ))}
       </div>
