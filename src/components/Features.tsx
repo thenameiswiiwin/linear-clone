@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
-import { Button } from './Button';
 
+import { Button } from './Button';
 import { Container } from './Container';
 
 type FeaturesProps = {
