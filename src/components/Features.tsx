@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
+import { Button } from './Button';
 
 import { Container } from './Container';
 
@@ -38,13 +39,20 @@ export const Features = ({ children, color, colorDark }: FeaturesProps) => {
 };
 
 type FeatureMainProps = {
-  image: StaticImageData;
+  image?: StaticImageData;
   text: string;
   title: React.ReactNode;
   imgSize?: 'small' | 'large';
+  btnText?: React.ReactNode;
 };
 
-const FeatureMain = ({ image, text, title, imgSize }: FeatureMainProps) => {
+const FeatureMain = ({
+  image,
+  text,
+  title,
+  imgSize,
+  btnText,
+}: FeatureMainProps) => {
   return (
     <>
       <div className="relative before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_50%_50%_at_center,rgba(var(--feature-color),0.1),transparent)]">
@@ -57,15 +65,27 @@ const FeatureMain = ({ image, text, title, imgSize }: FeatureMainProps) => {
           <h2 className="text-gradient mb-11 translate-y-[40%] text-center text-6xl [transition:transform_1000ms_cubic-bezier(0.3,1.17,0.55,0.99)0s] md:text-8xl [.is-visible_&]:translate-y-0">
             {title}
           </h2>
-          <div className="relative rounded-[14px] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0)120%)] before:p-[1px] before:[mask:linear-gradient(black,black)content-box_content-box,linear-gradient(black,black)] before:[mask-composite:xor] after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:bg-[rgba(255,255,255,0.15)] after:[mask:linear-gradient(black,transparent)]">
-            <Image src={image} alt="issues" className="h-auto w-full" />
-          </div>
+          {image && (
+            <div className="relative rounded-[14px] before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:bg-[linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0)120%)] before:p-[1px] before:[mask:linear-gradient(black,black)content-box_content-box,linear-gradient(black,black)] before:[mask-composite:xor] after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:bg-[rgba(255,255,255,0.15)] after:[mask:linear-gradient(black,transparent)]">
+              <Image src={image} alt="issues" className="h-auto w-full" />
+            </div>
+          )}
         </Container>
       </div>
       <Container className="w-[78rem] max-w-[90%] text-center">
         <p className="mx-auto my-16 text-2xl leading-tight text-white md:w-[80%] md:text-4xl">
           {text}
         </p>
+        {btnText && (
+          <Button
+            type="button"
+            intent="secondary"
+            size="sm"
+            className="-top-6 mb-11"
+          >
+            {btnText}
+          </Button>
+        )}
         <hr className="mb-[7.2rem] h-[1px] border-none bg-[linear-gradient(to_right,transparent,rgba(255,255,255,0.1)50%,transparent)]" />
       </Container>
     </>
@@ -83,11 +103,11 @@ type FeatureGridProps = {
 const FeatureGrid = ({ features }: FeatureGridProps) => {
   return (
     <Container>
-      <div className="mb-[14rem] grid w-full grid-cols-2 place-items-center gap-y-9 text-sm text-gray-300 md:grid-cols-3 md:text-md">
+      <div className="mb-[14rem] grid w-full grid-cols-2 place-items-start gap-y-9 text-sm text-gray-300 md:grid-cols-3 md:place-items-center md:text-md">
         {features.map(({ title, text, icon: Icon }) => (
           <div
             key={title}
-            className="max-w-[25.6rem] [&_svg]:mb-[4px] [&_svg]:fill-white md:[&_svg]:mr-[6px] md:[&_svg]:mb-[2px] md:[&_svg]:inline"
+            className="w-full space-y-1 md:max-w-[25.6rem] [&_svg]:mb-[4px] [&_svg]:fill-white md:[&_svg]:mr-[6px] md:[&_svg]:mb-[2px] md:[&_svg]:inline"
           >
             <Icon />
             <span className="block text-white md:inline">{title}</span> {text}
