@@ -43,8 +43,8 @@ module.exports = {
         100: 'rgba(255, 255, 255, 0.08)', // transparent white
         200: '#f7f8f8', // off white
         300: '#b4bcd0', // primary text
-        400: '#858699', // grey
-        500: '#222326', // grey dark
+        400: '#858699', // gray
+        500: '#222326', // gray dark
       },
       transparent: 'transparent',
       white: '#fff',
@@ -138,6 +138,8 @@ module.exports = {
       12: '4.8rem',
       13: '5.2rem',
       14: '5.6rem',
+      15: '6rem',
+      16: '6.4rem',
       'nav-height': 'var(--nav-height)',
     },
     extend: {},
