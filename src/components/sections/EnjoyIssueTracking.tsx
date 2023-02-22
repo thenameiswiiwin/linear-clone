@@ -61,11 +61,13 @@ export const EnjoyIssueTracking = () => {
         features={[
           {
             image: CardBoardImg,
+            imgClassName: 'top-[40%] w-[200%]',
             title: 'List and board',
             text: 'Switch between list and board layout to view work from any angle.',
           },
           {
             image: CardViewsImg,
+            imgClassName: 'top-[34%] left-[24px] w-[110%]',
             title: 'Make it yours',
             text: 'Quickly apply filters and operators to refine your issue lists and create custom views.',
           },

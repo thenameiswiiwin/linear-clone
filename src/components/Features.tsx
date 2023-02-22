@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 
@@ -54,7 +55,7 @@ type FeatureGridProps = {
 
 const FeatureGrid = ({ features }: FeatureGridProps) => {
   return (
-    <div className="grid w-full grid-cols-3 gap-y-9 text-md text-gray-300">
+    <div className="mb-[14rem] grid w-full grid-cols-3 gap-y-9 text-md text-gray-300">
       {features.map(({ title, text, icon: Icon }) => (
         <div
           key={title}
@@ -71,6 +72,7 @@ const FeatureGrid = ({ features }: FeatureGridProps) => {
 type FeatureCardsProps = {
   features: {
     image: StaticImageData;
+    imgClassName: string;
     title: string;
     text: string;
   }[];
@@ -78,12 +80,19 @@ type FeatureCardsProps = {
 
 const FeatureCards = ({ features }: FeatureCardsProps) => {
   return (
-    <div>
-      {features.map(({ title, text, image }) => (
-        <div key={title}>
-          <h3>{title}</h3>
-          <p>{text}</p>
-          <Image src={image} alt={title} />
+    <div className="grid w-full grid-cols-2 gap-6">
+      {features.map(({ title, text, image, imgClassName }) => (
+        <div
+          key={title}
+          className="relative aspect-[1.1/1] overflow-hidden rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-14"
+        >
+          <h3 className="mb-2 text-2xl text-white">{title}</h3>
+          <p className="max-w-[31rem] text-md text-gray-300">{text}</p>
+          <Image
+            src={image}
+            alt={title}
+            className={clsx('absolute max-w-none', imgClassName)}
+          />
         </div>
       ))}
     </div>
