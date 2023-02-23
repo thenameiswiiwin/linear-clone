@@ -1,5 +1,15 @@
-export const StarsIllustration = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="872" height="731" fill="none">
+type StarsIllustrationProps = {
+  className?: string;
+};
+
+export const StarsIllustration = ({ className }: StarsIllustrationProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="872"
+    height="731"
+    fill="none"
+    className={className}
+  >
     <g fill="#fff" opacity="0.7">
       <circle
         cx="227.718"

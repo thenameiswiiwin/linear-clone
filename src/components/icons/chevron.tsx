@@ -1,7 +1,7 @@
-interface ChevronIconProps {
+type ChevronIconProps = {
   className?: string;
   fill?: string;
-}
+};
 
 export const ChevronIcon = ({ className, fill }: ChevronIconProps) => (
   <svg
