@@ -13,14 +13,21 @@ export const AvailableToday = () => {
           alt="Linear app icon"
           className="h-[12.8rem] w-[12.8rem]"
         />
-        <h1 className="text-gradient text-8xl">
-          Built for the future. Available today.
+        <h1 className="text-gradient text-5xl md:text-8xl">
+          Built for the future.
+          <br />
+          Available today.
         </h1>
         <div className="flex gap-[1.6rem]">
           <Button type="button" intent="primary" size="lg">
             Sign up for free
           </Button>
-          <Button type="button" intent="secondary" size="lg">
+          <Button
+            type="button"
+            intent="secondary"
+            size="lg"
+            className="hidden md:inline-flex"
+          >
             <AppleIcon />
             <span className="ml-2">Download</span>
           </Button>
