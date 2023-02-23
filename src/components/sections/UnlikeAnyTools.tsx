@@ -22,14 +22,6 @@ export const UnlikeAnyTools = () => (
     </Container>
     <div className="h-[48rem] overflow-hidden md:h-auto md:overflow-auto">
       <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto px-8 pb-12 md:flex-wrap md:overflow-hidden">
-        <div className="relative order-3 flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end overflow-hidden rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:order-none md:max-w-[calc(66.66%-12px)] md:basis-[calc(66.66%-12px)] md:p-14">
-          <KeyboardShortcuts />
-          <p className="mb-4 text-3xl">Built for your keyboard</p>
-          <p className="text-md text-gray-300">
-            Fly through your tasks with rapid-fire keyboard shortcuts for
-            everything. Literally everything.
-          </p>
-        </div>
         <div className="relative flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end overflow-hidden rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:basis-[calc(33.33%-12px)] md:p-14">
           <div className="mask-linear-faded absolute top-[-9.2rem]">
             <ZapIllustration />
@@ -61,6 +53,14 @@ export const UnlikeAnyTools = () => (
             Product Principles
             <ChevronIcon fill="#8A8F98" className="ml-1" />
           </Button>
+        </div>
+        <div className="relative order-3 flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-end overflow-hidden rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:order-first md:max-w-[calc(66.66%-12px)] md:basis-[calc(66.66%-12px)] md:p-14">
+          <KeyboardShortcuts />
+          <p className="mb-4 text-3xl">Built for your keyboard</p>
+          <p className="text-md text-gray-300">
+            Fly through your tasks with rapid-fire keyboard shortcuts for
+            everything. Literally everything.
+          </p>
         </div>
         <div className="relative order-last flex min-h-[48rem] w-full shrink-0 snap-center flex-col items-center justify-start overflow-hidden rounded-[4.8rem] border border-gray-100 bg-glass-gradient p-8 text-center md:max-w-[calc(66.66%-12px)] md:basis-[calc(66.66%-12px)] md:p-14">
           <CommandMenu />
