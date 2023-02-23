@@ -28,8 +28,6 @@ export const HeroImage = () => {
   };
 
   useEffect(() => {
-    if (!inView) return;
-
     const renderLine = (timeout: number) => {
       timeoutRef.current = setTimeout(() => {
         setLines((prevLines) => [
@@ -63,7 +61,6 @@ export const HeroImage = () => {
           inView && 'before:animate-image-glow'
         )}
       >
-        {/* Glowing Lines */}
         <div className="absolute top-0 left-0 z-20 h-full w-full">
           {lines.map((line) => (
             <span
@@ -86,7 +83,6 @@ export const HeroImage = () => {
             />
           ))}
         </div>
-        {/* Sketch SVG  */}
         <svg
           className={clsx(
             'absolute top-0 left-0 h-full w-full',
