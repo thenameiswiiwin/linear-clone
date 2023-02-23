@@ -34,6 +34,15 @@ export default function Homepage() {
       <BuildMomentum />
       <SetDirection />
       <LinearWorkflows />
+      <div
+        className={clsx(
+          'mask-radial-faded pointer-events-none relative z-[-1] mt-[-25.2rem] h-[60rem] rotate-180 overflow-hidden',
+          '[--color:#7877C6] before:absolute before:inset-0 before:bg-radial-faded before:opacity-[0.4]',
+          'after:absolute after:top-1/2 after:-left-1/2 after:h-[142.8%] after:w-[200%] after:rounded-[50%] after:border-t after:border-[rgba(120,119,198,0.4)] after:bg-black'
+        )}
+      >
+        <StarsIllustration />
+      </div>
     </>
   );
 }
